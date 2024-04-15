@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 620px;
+
+  .headerContiner {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .requestsContiner {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    
+    .requests {
+      display: flex;
+      max-height: 185px;
+      gap: 24px;
+      justify-content: space-between;
+    }
+  
+    .oppRequestsContainer {
+      overflow: auto;
+
+      & > div {
+        margin: 4px;
+      }
+  
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}

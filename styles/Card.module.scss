@@ -1,0 +1,16 @@
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  text-transform: capitalize;
+
+  svg {
+    cursor: pointer;
+    margin-left: 12px;
+  }
+}
+
+.infoContainer {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+}

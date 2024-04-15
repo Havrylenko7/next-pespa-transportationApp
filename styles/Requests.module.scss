@@ -1,0 +1,17 @@
+.requestsContiner {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .headerContiner {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .sortContainer {
+    display: flex;
+    gap: 8px;
+    cursor: pointer;
+  }
+}
