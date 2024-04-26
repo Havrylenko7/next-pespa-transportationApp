@@ -47,13 +47,15 @@ export default function Requests() {
               Sort by date
             </Typography>
           </div>
-          {sortedRequests.map(request => 
-            <Card
-              data={request}
-              key={request.token}
-              user={findUser(request.createdBy, users)?.userName}
-            />
-          )}
+          <div className={styles.listContainer}>
+            {sortedRequests.map(request => 
+              <Card
+                data={request}
+                key={request.token}
+                user={findUser(request.createdBy, users)?.userName}
+              />
+            )}
+          </div>
         </>
       :
         <Typography

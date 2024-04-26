@@ -1,6 +1,14 @@
+import { useState } from 'react';
 import styles from '../../styles/Card.module.scss';
 
-import { Card, CardContent, Typography } from '@mui/material';
+import {
+  Card,
+  CardContent,
+  Typography,
+  Modal,
+  Box,
+  Button
+} from '@mui/material';
 import { Create, Delete } from '@mui/icons-material';
 
 import dayjs from 'dayjs';
@@ -12,9 +20,12 @@ export default function CustomCard({
   remove = false,
   edit = false
 }){
+  const [open, setOpen] = useState(false);
+
+  const handleClose = () => setOpen(false);
 
   return (
-    <Card sx={{ minWidth: 300 }}>
+    <Card className={styles.cardContainer}>
       <CardContent style={{ background: match ? '#ffda79' : 'inherit' }}>
         <div className={styles.headerContainer}>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
@@ -22,7 +33,7 @@ export default function CustomCard({
           </Typography>
           {remove && edit ?
             <div>
-              <Delete onClick={remove} />
+              <Delete onClick={() => setOpen(true)} />
               <Create onClick={edit} />
             </div>
             :
@@ -52,6 +63,23 @@ export default function CustomCard({
           </div>
         }
       </CardContent>
+
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box className={styles.modalContainer}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Are you sure about this action?
+          </Typography>
+          <Box display="flex" justifyContent="space-between" marginTop={2}>
+            <Button onClick={remove} color="error" variant="contained">Delete</Button>
+            <Button onClick={handleClose} color="primary" variant="contained">Close</Button>
+          </Box>
+        </Box>
+      </Modal>
     </Card>
   )
 }

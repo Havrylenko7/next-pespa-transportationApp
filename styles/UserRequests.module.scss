@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 16px;
   min-width: 620px;
+  max-height: inherit;
 
   .headerContiner {
     display: flex;
@@ -11,27 +12,19 @@
   }
 
   .requestsContiner {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    flex: 1;
+    overflow: auto;
     
     .requests {
       display: flex;
       max-height: 185px;
       gap: 24px;
       justify-content: space-between;
+      margin-bottom: 8px;
     }
   
     .oppRequestsContainer {
       overflow: auto;
-
-      & > div {
-        margin: 4px;
-      }
-  
-      &::-webkit-scrollbar {
-        display: none;
-      }
     }
   }
 }

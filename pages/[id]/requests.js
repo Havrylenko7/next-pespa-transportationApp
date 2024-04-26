@@ -38,7 +38,7 @@ export default function UserRequests() {
   }
 
   return (
-    <div className={styles.container}>
+    <>
       {edit ?
         <RequestForm
           type={edit.type}
@@ -47,7 +47,7 @@ export default function UserRequests() {
           edit={true}
         />
       :
-        <>  
+        <div className={styles.container}>
           <div className={styles.headerContiner}>
             <Typography sx={{ fontSize: 24 }}>
               Your Requests
@@ -104,8 +104,8 @@ export default function UserRequests() {
               </Typography>
             }
           </div>
-        </>
+        </div>
       }
-    </div>
+    </>
   )
 }
